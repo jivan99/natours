@@ -1,0 +1,55 @@
+.composition {
+  position: relative;
+
+  @include respond(tab-port) {
+    margin-top: 8rem;
+    @include clearfix;
+  }
+
+  &__photo {
+    display: block;
+    width: 55%;
+    position: absolute;
+    border-radius: 3px;
+    transition: all .3s;
+
+    @include respond(tab-port) {
+      width: 33.3333333%;
+      float: left;
+      position: relative;
+      top: 0 !important;
+      left: 0 !important;
+    }
+
+    &:hover {
+      outline: solid 1.5rem $color-primary;
+      outline-offset: 1.5rem;
+
+      z-index: 10;
+    }
+
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+
+    &--p2 {
+      top: 3rem;
+      right: 0;
+
+      @include respond(tab-port) {
+        transform: scale(1.2) translateY(-2rem);
+        z-index: 10;
+      }
+    }
+
+    &--p3 {
+      top: 12rem;
+      left: 20%;
+    }
+  }
+
+  &:hover &__photo:not(:hover) {
+    transform: scale(.9);
+  }
+}
